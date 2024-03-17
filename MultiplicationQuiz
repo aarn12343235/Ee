@@ -1,0 +1,28 @@
+import java.util.Random;
+import java.util.Scanner;
+public class MultiplicationQuiz{
+    public static void main(String[] args) {
+        Random rand = new Random();
+        Scanner scan = new Scanner(System.in);
+
+        int product, answer, wrongAnswer = 0, i = 1, score;
+        while (i <= 10){
+            int num1 = rand.nextInt(10);
+            int num2 = rand.nextInt(10);
+            System.out.print(i + ". " +"What is " + num1 + " * " + num2 + " ? ");
+            answer = scan.nextInt();
+            product = num1 * num2;
+            if(product == answer)
+                System.out.println("Correct!");
+            else{
+                System.out.println("wrong. " + num1 + " * " + num2 + " is " + product);
+                wrongAnswer++;
+            }
+            System.out.println();
+            i++;
+        }
+        score = 10 - wrongAnswer;
+        System.out.println("You got " + score + " out of 10 questions correct!" );
+        scan.close();
+    }
+}
